@@ -3,24 +3,24 @@ const repository = require('./products.json');
 function getProducts(req, res) {
 	res.setHeader('Content-Type', 'application/json');
 	const result = [];
-	for (let product in repository) {
+	const product = req.query.name;
+	if (product != null) {
 		if (repository.hasOwnProperty(product)) {
 			result.push(repository[product]);
+		} else {
+			res.status(400).send({ error: 'No product found' });
+			return;
+		}
+	} else {
+		for (let product in repository) {
+			if (repository.hasOwnProperty(product)) {
+				result.push(repository[product]);
+			}
 		}
 	}
 	res.send(result);
 }
 
-function getProductsByName (req, res) {
-	console.log(req.query.name);
-	res.setHeader('Content-Type', 'application/json');
-	if (repository.hasOwnProperty(req.query.name))
-		res.send([repository[req.query.name]]);
-	else
-		res.send([]);
-}
-
 module.exports = {
-	getProducts,
-	getProductsByName
+	getProducts
 }
