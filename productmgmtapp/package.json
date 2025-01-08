@@ -2,12 +2,12 @@
   "name": "productmgmtapp",
   "version": "1.0.0",
   "description": "The product management api app",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
-    "lib": "lib"
+    "src": "src"
   },
   "scripts": {
-    "test": "npm start"
+    "start": "node server.js"
   },
   "author": "avinash.vaidya@sap.com",
   "license": "ISC",

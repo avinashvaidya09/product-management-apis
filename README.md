@@ -1,6 +1,6 @@
 ## Introduction
 
-This project showcases how to create OData apis using Node.js.
+This project showcases how to create REST apis using Node.js and authenticate using XSUAA service. All on BTP.
 
 ## Initial Set up
 
@@ -19,7 +19,7 @@ This project showcases how to create OData apis using Node.js.
 
 3. Add products.json - which holds the sample products data.
 
-4. Add repository.json - which holds methods to access products data from the json.
+4. Add repository.js - which holds methods to access products data from the json.
 
 5. Now you need to add package.json to your project.
 
@@ -33,12 +33,6 @@ npm init
     ```
     npm install express --save 
     ```
-
-    - To install odata lib
-    ```
-    npm install @odata/server --save
-    ```
-
     - To install request lib
     ```
     npm install request --save-dev
