@@ -1,8 +1,12 @@
 {
-    "routes": [{
-      "source": "^/products",
-      "target": "/",
-      "destination": "product-mgmt-destination"
-    }]
-  }
-  
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/products(.*)$",
+      "target": "/products$1", 
+      "destination": "product-mgmt-destination",
+      "authenticationType": "xsuaa",
+      "csrfProtection": true
+    }
+  ]
+}

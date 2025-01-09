@@ -10,19 +10,17 @@ modules:
     path: productmgmtapp
     parameters:
       memory: 512M
-      disk-quota: 512M
       start-command: npm start
       host: product-management-av09
       domain: cfapps.us10.hana.ondemand.com
       timeout: 180
     requires:
       - name: product-mgmt-xsuaa
-  - name: app-router
+  - name: product-management-app-router
     type: approuter.nodejs
     path: productmgmtapp/approuter
     parameters:
-      memory: 128M
-      disk-quota: 128M
+      memory: 512M
       host: approuter-product-management-av09
       domain: cfapps.us10.hana.ondemand.com
     requires:
@@ -44,9 +42,17 @@ resources:
       service: destination
       service-plan: lite
       config:
-        destinations:
-          - name: product-mgmt-destination
-            url: https://product-management-av09.cfapps.us10.hana.ondemand.com
-            forwardAuthToken: true
-            proxyType: Internet
-            authentication: OAuth2UserTokenExchange
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            existing_destinations_policy: update
+            destinations:
+              - Name: product-mgmt-destination
+                URL: https://product-management-av09.cfapps.us10.hana.ondemand.com
+                Type: HTTP
+                ProxyType: Internet
+                Authentication: NoAuthentication
+                Description: The product management destination
+                HTML5.ForwardAuthToken: true
+                HTML5.DynamicDestination: true
+                

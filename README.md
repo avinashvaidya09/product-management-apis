@@ -57,4 +57,4 @@ cf deploy cf deploy mta_archives/product-management-apis-mta_1.0.0.mtar
 ```
 export VCAP_SERVICES = $(cat path/to/vcap.json)
 ```
-
+12. Update the mta.yaml file with xsuaa service and destination service with the destination content
