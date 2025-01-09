@@ -53,3 +53,8 @@ mbt build
 cf deploy cf deploy mta_archives/product-management-apis-mta_1.0.0.mtar
 ```
 
+11. Ensure you add vcap services in your local environment variables using below command
+```
+export VCAP_SERVICES = $(cat path/to/vcap.json)
+```
+

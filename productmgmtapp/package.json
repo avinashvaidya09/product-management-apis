@@ -12,10 +12,9 @@
   "author": "avinash.vaidya@sap.com",
   "license": "ISC",
   "dependencies": {
-    "@odata/server": "^0.2.48",
-    "express": "^4.21.2"
-  },
-  "devDependencies": {
-    "request": "^2.88.2"
+    "@sap/xsenv": "^5.4.0",
+    "@sap/xssec": "^4.2.7",
+    "express": "^4.21.2",
+    "passport": "^0.7.0"
   }
 }

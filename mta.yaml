@@ -12,5 +12,41 @@ modules:
       memory: 512M
       disk-quota: 512M
       start-command: npm start
-      host: product-management-apis
+      host: product-management-av09
       domain: cfapps.us10.hana.ondemand.com
+      timeout: 180
+    requires:
+      - name: product-mgmt-xsuaa
+  - name: app-router
+    type: approuter.nodejs
+    path: productmgmtapp/approuter
+    parameters:
+      memory: 128M
+      disk-quota: 128M
+      host: approuter-product-management-av09
+      domain: cfapps.us10.hana.ondemand.com
+    requires:
+      - name: product-mgmt-destinations
+      - name: product-mgmt-xsuaa
+
+resources:
+  - name: product-mgmt-xsuaa
+    type: org.cloudfoundry.managed-service
+    optional: false
+    active: true
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./productmgmtapp/security/xs-security.json
+  - name: product-mgmt-destinations
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+      config:
+        destinations:
+          - name: product-mgmt-destination
+            url: https://product-management-av09.cfapps.us10.hana.ondemand.com
+            forwardAuthToken: true
+            proxyType: Internet
+            authentication: OAuth2UserTokenExchange

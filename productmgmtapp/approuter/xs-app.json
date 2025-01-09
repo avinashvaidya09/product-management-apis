@@ -1,0 +1,8 @@
+{
+    "routes": [{
+      "source": "^/products",
+      "target": "/",
+      "destination": "product-mgmt-destination"
+    }]
+  }
+  
