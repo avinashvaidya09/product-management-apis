@@ -38,3 +38,18 @@ npm init
     npm install request --save-dev
     ```
 
+8. Start the application locally
+```
+npm start
+```
+
+9. Build the application
+```
+mbt build
+```
+
+10. Deploy the application on BTP cloud foundry environment
+```
+cf deploy cf deploy mta_archives/product-management-apis-mta_1.0.0.mtar
+```
+

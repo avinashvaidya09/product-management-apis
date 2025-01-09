@@ -1,6 +1,6 @@
 _schema-version: "3.2"
 ID: product-management-apis-mta
-version: 0.0.1
+version: 1.0.0
 description: "A Node.js OData API project."
 
 modules:
@@ -9,13 +9,8 @@ modules:
     type: nodejs
     path: productmgmtapp
     parameters:
-      memory: 128M
-      disk-quota: 128M
+      memory: 512M
+      disk-quota: 512M
       start-command: npm start
-    requires:
-      - name: product-management-route
-
-resources:
-  # Route Resource
-  - name: product-management-route
-    type: org.cloudfoundry.managed-route
+      host: product-management-apis
+      domain: cfapps.us10.hana.ondemand.com
