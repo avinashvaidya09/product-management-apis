@@ -1,7 +1,7 @@
 _schema-version: "3.2"
-ID: product-management-apis-mta
+ID: product-management-apis
 version: 1.0.0
-description: "A Node.js OData API project."
+description: "A Node.js REST API project."
 
 modules:
   # Product management application
@@ -12,7 +12,7 @@ modules:
       memory: 512M
       start-command: npm start
       host: product-management-av09
-      domain: cfapps.us10.hana.ondemand.com
+      domain: cfapps.${region}.hana.ondemand.com
       timeout: 180
     requires:
       - name: product-mgmt-xsuaa
@@ -22,7 +22,7 @@ modules:
     parameters:
       memory: 512M
       host: approuter-product-management-av09
-      domain: cfapps.us10.hana.ondemand.com
+      domain: cfapps.${region}.hana.ondemand.com
     requires:
       - name: product-mgmt-destinations
       - name: product-mgmt-xsuaa
@@ -36,6 +36,12 @@ resources:
       service: xsuaa
       service-plan: application
       path: ./productmgmtapp/security/xs-security.json
+      config:
+        xsappname: product-management-apis
+        tenant-mode: dedicated
+        oauth2-configuration:
+          redirect-uris: 
+            - https://approuter-product-management-av09.cfapps.${region}.hana.ondemand.com/login/callback
   - name: product-mgmt-destinations
     type: org.cloudfoundry.managed-service
     parameters:
@@ -48,7 +54,7 @@ resources:
             existing_destinations_policy: update
             destinations:
               - Name: product-mgmt-destination
-                URL: https://product-management-av09.cfapps.us10.hana.ondemand.com
+                URL: https://product-management-av09.cfapps.${region}.hana.ondemand.com
                 Type: HTTP
                 ProxyType: Internet
                 Authentication: NoAuthentication

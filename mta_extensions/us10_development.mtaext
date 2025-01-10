@@ -1,0 +1,6 @@
+ID: product-management-apis.dev
+_schema-version: "3.2"
+extends: product-management-apis
+
+parameters:
+  region: us10

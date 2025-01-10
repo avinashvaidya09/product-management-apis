@@ -1,6 +1,4 @@
 {
-    "xsappname": "product-management-apis",
-    "tenant-mode": "dedicated",
     "scopes": [
         {
             "name": "$XSAPPNAME.read",
@@ -24,10 +22,5 @@
                 "$XSAPPNAME.Viewer"
             ]
         }
-    ],
-    "oauth2-configuration": {
-        "redirect-uris": [
-            "https://approuter-product-management-av09.cfapps.us10.hana.ondemand.com/login/callback"
-        ]
-    }
+    ]
 }

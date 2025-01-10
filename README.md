@@ -37,6 +37,7 @@ npm init
     ```
     npm install request --save-dev
     ```
+    - Similarly install @sap/xssec, @sap/xsenv and passport
 
 8. Start the application locally
 ```
@@ -58,3 +59,12 @@ cf deploy cf deploy mta_archives/product-management-apis-mta_1.0.0.mtar
 export VCAP_SERVICES = $(cat path/to/vcap.json)
 ```
 12. Update the mta.yaml file with xsuaa service and destination service with the destination content
+
+13. To deploy your application using mta_extensions. This will be helpful to make your mta.yaml region agnostic. If you are in eu region, create another mta extension.
+```
+cf deploy <mtar> -e ./mta_extensions/<ext>
+
+EXAMPLE:
+
+cf deploy mta_archives/product-management-apis_1.0.0.mtar -e mta_extensions/us10_development.mtaext
+```
