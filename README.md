@@ -2,7 +2,7 @@
 
 This project showcases how to create REST apis using Node.js and authenticate using XSUAA service. All on BTP.
 
-## Initial Set up
+## Initial Set Up
 
 1. If you are creating from scratch.
     - Create a dev space in Business Application Studio (BAS)
@@ -11,7 +11,7 @@ This project showcases how to create REST apis using Node.js and authenticate us
 
 2. Or you can clone this REPO.
 
-## Project Set up [if you are doing from scratch]
+## Project Set Up [if you are doing from scratch]
 
 1. Create application folder - productmgmtapp
 
@@ -39,7 +39,7 @@ npm init
     ```
     - Similarly install @sap/xssec, @sap/xsenv and passport
 
-## Starting server locally
+## Starting Server Locally
 
 1. Ensure you add vcap services in your local environment variables using below command
 ```
@@ -56,7 +56,7 @@ export NODE_ENV=local
 npm start
 ```
 
-## Project deployment to cloud foundry
+## Project Deployment To BTP Cloud Foundry
 
 1. Build the application
 ```
@@ -73,7 +73,26 @@ EXAMPLE:
 cf deploy mta_archives/product-management-apis_1.0.0.mtar -e mta_extensions/us10_development.mtaext
 ```
 
-## GREAT - You have successfully created a secured REST API on SAP BTP!
+## XSUAA Role Collection
+
+1. When you deploy the application in your cloud foundary environment using the mta.yaml and xs-security.json, it will automatically create the role collection mentioned in the xs-security.json.
+
+2. Go to BTP Cockpit - Security - Role Collection.
+
+3. Find out the role collection which you have mentioned in the xs-security.json.
+
+4. Add your user to it.
+
+## Destination Configuration
+
+1. As part of deployment orchestration, mta.yaml should also create destination mentioned in the configuration.
+
+2. This destination is important as app router will use this destination to forward the request to the
+application.
+
+3. Ensure, the destination is created as part of deployment.
+
+## GREAT - You have successfully created a secured secured REST API on SAP BTP using NodeJS!
 
 ## References:
 - https://developers.sap.com/tutorials/cp-cf-security-xsuaa-create.html#a3c31c15-a6c9-40d6-a56b-52c316aa0f13
