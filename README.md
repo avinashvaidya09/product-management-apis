@@ -74,3 +74,6 @@ cf deploy mta_archives/product-management-apis_1.0.0.mtar -e mta_extensions/us10
 ```
 
 ## GREAT - You have successfully created a secured REST API on SAP BTP!
+
+## References:
+- https://developers.sap.com/tutorials/cp-cf-security-xsuaa-create.html#a3c31c15-a6c9-40d6-a56b-52c316aa0f13
