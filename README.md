@@ -39,28 +39,29 @@ npm init
     ```
     - Similarly install @sap/xssec, @sap/xsenv and passport
 
+8. Ensure you add vcap services in your local environment variables using below command
+```
+export VCAP_SERVICES=$(cat path/to/vcap.json)
+```
+
+9. Ensure to add NODE_ENV variable in your local environment
+```
+export NODE_ENV=local
+```
+
 8. Start the application locally
 ```
 npm start
 ```
+## Project deployment to cloud foundry
 
-9. Build the application
+1. Build the application
 ```
 mbt build
 ```
 
-10. Deploy the application on BTP cloud foundry environment
-```
-cf deploy cf deploy mta_archives/product-management-apis-mta_1.0.0.mtar
-```
-
-11. Ensure you add vcap services in your local environment variables using below command
-```
-export VCAP_SERVICES = $(cat path/to/vcap.json)
-```
-12. Update the mta.yaml file with xsuaa service and destination service with the destination content
-
-13. To deploy your application using mta_extensions. This will be helpful to make your mta.yaml region agnostic. If you are in eu region, create another mta extension.
+2. Deploy the application on BTP cloud foundry environment. Use mta_extensions to make the mta.yaml file 
+region agnostic.If your subaccount is in eu region, create another mta extension.
 ```
 cf deploy <mtar> -e ./mta_extensions/<ext>
 
@@ -68,3 +69,5 @@ EXAMPLE:
 
 cf deploy mta_archives/product-management-apis_1.0.0.mtar -e mta_extensions/us10_development.mtaext
 ```
+
+## GREAT - You have successfully created a secured REST API on SAP BTP!
