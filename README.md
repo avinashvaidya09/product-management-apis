@@ -39,20 +39,23 @@ npm init
     ```
     - Similarly install @sap/xssec, @sap/xsenv and passport
 
-8. Ensure you add vcap services in your local environment variables using below command
+## Starting server locally
+
+1. Ensure you add vcap services in your local environment variables using below command
 ```
 export VCAP_SERVICES=$(cat path/to/vcap.json)
 ```
 
-9. Ensure to add NODE_ENV variable in your local environment
+2. Ensure to add NODE_ENV variable in your local environment
 ```
 export NODE_ENV=local
 ```
 
-8. Start the application locally
+3. Start the application locally
 ```
 npm start
 ```
+
 ## Project deployment to cloud foundry
 
 1. Build the application
