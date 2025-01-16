@@ -41,7 +41,7 @@ npm init
 
 ## Starting Server Locally
 
-1. Ensure you add vcap services in your local environment variables using below command
+1. Ensure you add vcap services in your local environment variables using below command.
 ```
 export VCAP_SERVICES=$(cat path/to/vcap.json)
 ```
@@ -51,7 +51,7 @@ export VCAP_SERVICES=$(cat path/to/vcap.json)
 export NODE_ENV=local
 ```
 
-3. Start the application locally
+3. Start the application locally. Go to the productmgmtapp folder and run following command.
 ```
 npm start
 ```

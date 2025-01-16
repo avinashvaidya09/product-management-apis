@@ -15,10 +15,10 @@ if ( process.env.NODE_ENV != 'local')
 	app.use(passport.authenticate('JWT', { session: false }))
 }
 
-app.get('/products', checkReadScope, getProducts);
+app.get('/v1/products', checkReadScope, getProducts);
 
 function checkReadScope(req, res, next) { 
-	if (req.authInfo.checkLocalScope('read') || process.env.NODE_ENV == 'local') { 
+	if (process.env.NODE_ENV == 'local' || req.authInfo.checkLocalScope('read') ) { 
 		return next(); 
 	} else { 
 		console.log('Missing the expected scope'); 

@@ -23,9 +23,12 @@ modules:
       memory: 512M
       host: approuter-product-management-av09
       domain: cfapps.${region}.hana.ondemand.com
+      env:
+        DEBUG: '*'
     requires:
       - name: product-mgmt-destinations
       - name: product-mgmt-xsuaa
+
 
 resources:
   - name: product-mgmt-xsuaa
@@ -42,6 +45,9 @@ resources:
         oauth2-configuration:
           redirect-uris: 
             - https://approuter-product-management-av09.cfapps.${region}.hana.ondemand.com/login/callback
+          grant-types:
+            - client_credentials
+            - authorization_code
   - name: product-mgmt-destinations
     type: org.cloudfoundry.managed-service
     parameters:

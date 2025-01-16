@@ -22,5 +22,8 @@
                 "$XSAPPNAME.Viewer"
             ]
         }
+    ],
+    "authorities": [
+        "$XSAPPNAME.read"
     ]
 }
