@@ -1,6 +1,16 @@
 ## Introduction
 
-This project showcases how to create REST apis using Node.js and authenticate using XSUAA service. All on BTP.
+Welcome to the Product Management API project! This repository demonstrates the seamless integration of open-source Node.js frameworks with the powerful SAP technology stack.
+
+Learn how to:
+1. Develop and build robust Node.js applications in the cutting-edge SAP Business Application Studio.
+2. Effortlessly integrate your application with cloud services available on SAP BTP.
+3. Secure your APIs using XSUAA, SAP's advanced authentication and trust management service.
+4. Efficiently use application router and destination service on BTP.
+
+This project is your gateway to mastering the creation of secure, scalable, and enterprise-grade API solutions in the SAP ecosystem.
+
+Whether you're an open-source enthusiast or a seasoned SAP developer, this project will inspire you to start your journey enterprise-grade solutions with flair.
 
 ## Initial Set Up
 
@@ -33,20 +43,38 @@ npm init
     ```
     npm install express --save 
     ```
-    - To install request lib
+    - To install @sap/xssec lib
     ```
-    npm install request --save-dev
+    npm install @sap/xssec --save
     ```
-    - Similarly install @sap/xssec, @sap/xsenv and passport
+    - Similarly install @sap/xsenv and passport
+
+8. Create app router by adding folder named - **approuter**
+
+9. You can manually install all the libraries as listed in package.json OR create package.json and copy the contents from **productmgmtapp/package.json**
+
+10. Create **xs-app.json**. This file contains the routes. Refer the link - https://help.sap.com/docs/btp/sap-business-technology-platform/routing-configuration-file to understand app router configuration in detail.
+
+
+11. Create mta.yaml file at the root of the project. What is mta.yaml. Best resources are given below
+    - https://www.sap.com/documents/2016/06/e2f618e4-757c-0010-82c7-eda71af511fa.html
+    - https://sap.github.io/cloud-mta-build-tool/
+
+12. Copy the contents from mta.yaml file to yours. To help you understand the mta.yaml file, I have added comments. Just go through it. This will surely help you understand MTA structure quickly.
+
+13. Along with mta.yaml, I have also tried to use mta extensions as this will be required in actual scenarios where you have to deploy in multiple environments and transport your code from **dev - to - stage - to prod**.
+You can add properties and parameters using mta extensions. In this project I have tried to use **region** parameters and then use it in mta.yaml
+
+**NOTE: I have done lot of steps, manually to understand the configurations.**
 
 ## Starting Server Locally
 
-1. Ensure you add vcap services in your local environment variables using below command.
+1. Ensure you add vcap services in your local environment variables using below command. I have not checked in the vcap.json as it contains credentials.
 ```
 export VCAP_SERVICES=$(cat path/to/vcap.json)
 ```
 
-2. Ensure to add NODE_ENV variable in your local environment
+2. Ensure to add NODE_ENV variable in your local environment. This is a workaround to skip authentication in the local environment.
 ```
 export NODE_ENV=local
 ```
@@ -58,7 +86,7 @@ npm start
 
 ## Project Deployment To BTP Cloud Foundry
 
-1. Build the application
+1. Build the application using mta build tool.
 ```
 mbt build
 ```
@@ -94,13 +122,15 @@ application.
 
 ## Testing API through postman or insomnia
 
-1. Import the collection which I have provided in the resources folder. 
+1. Go to the product-management-xsuaa service instance and create a service key. This will contain the credentials which you will use in the below steps.
 
-2. Get your own base urls and client id and client secret. I have externalized the urls and credentials as it is not safe to check it in the repo.
+2. Import the collection which I have provided in the resources folder. 
 
-3. Get the token.
+3. Get your own base urls and client id and client secret. I have externalized the urls and credentials as it is not safe to check it in the repo.
 
-4. Execute the request to the app router and/or to direct api. IMPORTANT:
+4. Get the access token.
+
+5. Execute the request to the app router and/or to direct api. IMPORTANT:
     - When calling the API through app router, ensure you put the bearer token in "x-approuter-authorization" header.
     - When calling the API directly, ensure you put the bearer token in the "Authorization" header.
 

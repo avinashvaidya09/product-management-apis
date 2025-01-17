@@ -1,45 +1,43 @@
 _schema-version: "3.2"
 ID: product-management-apis
 version: 1.0.0
-description: "A Node.js REST API project."
+description: "Product management API sample NodeJS application on SAP BTP"
 
-modules:
+modules: # Here you list all the components in your application
   # Product management application
-  - name: product-management-apis
-    type: nodejs
-    path: productmgmtapp
-    parameters:
+  - name: product-management-app # The name of the module 
+    type: nodejs # The type of the module. Here we are using nodejs.
+    path: productmgmtapp # The path where mta will find this application. This is where the code resides.
+    parameters: # Additional parameters for building and deploying your module.
       memory: 512M
       start-command: npm start
-      host: product-management-av09
-      domain: cfapps.${region}.hana.ondemand.com
+      host: product-management-av09 # If you want to specify any specific host.
+      domain: cfapps.${region}.hana.ondemand.com # If you want to specify any specific domain.
       timeout: 180
-    requires:
-      - name: product-mgmt-xsuaa
-  - name: product-management-app-router
+    requires: # Here you will list all the dependencies which are required by your application to run successfully.
+      - name: product-management-xsuaa # For example. This application requires xsuaa service instance
+  - name: product-management-app-router # This is application router module/app.
     type: approuter.nodejs
-    path: productmgmtapp/approuter
-    parameters:
+    path: productmgmtapp/approuter # The path where mta will find the code and configuration of app router.
+    parameters: # Additional parameters.
       memory: 512M
-      host: approuter-product-management-av09
-      domain: cfapps.${region}.hana.ondemand.com
-      env:
-        DEBUG: '*'
-    requires:
-      - name: product-mgmt-destinations
-      - name: product-mgmt-xsuaa
+      host: approuter-product-management-av09 # If you want to specify any specific host.
+      domain: cfapps.${region}.hana.ondemand.com # If you want to specify any specific domain.
+    requires: # Now app router requires two services mentioned below.
+      - name: product-management-destinations
+      - name: product-management-xsuaa
 
 
-resources:
-  - name: product-mgmt-xsuaa
-    type: org.cloudfoundry.managed-service
+resources: # Here you mention services/instances which are required by your modules at runtime.
+  - name: product-management-xsuaa # MTA will create instance of xsuaa in your space.
+    type: org.cloudfoundry.managed-service # The type of service.
     optional: false
     active: true
-    parameters:
+    parameters: # Additional parameters required for the service.
       service: xsuaa
       service-plan: application
-      path: ./productmgmtapp/security/xs-security.json
-      config:
+      path: ./productmgmtapp/security/xs-security.json # This is the path of the xs-security.json which will be used to create role collections, role and scopes which will be required by the application.
+      config: # Here you can add aditional configuration. Below you can see I have added configuration of xs-app. This will be picked up along with xs-security.json 
         xsappname: product-management-apis
         tenant-mode: dedicated
         oauth2-configuration:
@@ -48,12 +46,12 @@ resources:
           grant-types:
             - client_credentials
             - authorization_code
-  - name: product-mgmt-destinations
+  - name: product-management-destinations # MTA will create instance of destination service.
     type: org.cloudfoundry.managed-service
-    parameters:
+    parameters: # Additional parameters required for the service.
       service: destination
       service-plan: lite
-      config:
+      config: # Additional configurations. Here I have shown how you can provide the destination configuration. At the time of deployment, product-mgmt-destination will be created as per the configuration provided.
         HTML5Runtime_enabled: true
         init_data:
           instance:
