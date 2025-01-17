@@ -140,13 +140,10 @@ application.
 
 2. This way the API can be integrated to a UI and can be called from backend system. Both ways it is secured access.
 
-## GREAT - You have successfully created a secured REST API on SAP BTP using NodeJS!
+## GREAT - You have successfully created a secured secured REST API on SAP BTP using NodeJS!
 
 ## References:
 - https://help.sap.com/docs/btp/sap-business-technology-platform/routing-configuration-file
 - https://developers.sap.com/tutorials/cp-cf-security-xsuaa-create.html#a3c31c15-a6c9-40d6-a56b-52c316aa0f13
 - https://www.sap.com/documents/2016/06/e2f618e4-757c-0010-82c7-eda71af511fa.html
 - https://sap.github.io/cloud-mta-build-tool/
-
-
-
