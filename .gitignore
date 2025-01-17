@@ -1,4 +1,3 @@
 /mta_archives/
 **/node_modules/
-/resources/
 /vcap.json

@@ -1,0 +1,222 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2025-01-17T16:29:24.567Z",
+    "__export_source": "insomnia.desktop.app:v10.2.0",
+    "resources": [
+        {
+            "_id": "req_7b465ca1a532411fb6c1dde4a9a85cf1",
+            "parentId": "fld_a8c72d89662f444e827a294a7d4ec06e",
+            "modified": 1737130221916,
+            "created": 1736958284585,
+            "url": "{{ _['product-mgmt-generate-token-url'] }}/oauth/token",
+            "name": "Generate_Token",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/x-www-form-urlencoded",
+                "params": [
+                    {
+                        "id": "pair_23584230bb1d417d94f709ee50c519c5",
+                        "name": "client_id",
+                        "value": "{{ _['product-mgmt-client-id'] }}",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_efd096d3af11402d9439b3025f35c6df",
+                        "name": "client_secret",
+                        "value": "{{ _['product-mgmt-client-secret'] }}",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_0bf91ced8dcf43c3960030767c9e1c1e",
+                        "name": "grant_type",
+                        "value": "client_credentials",
+                        "description": "",
+                        "disabled": false
+                    },
+                    {
+                        "id": "pair_f1797125f8904fe19b0558387821124b",
+                        "name": "",
+                        "value": "",
+                        "description": "",
+                        "disabled": false
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.2.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1736965879357,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_a8c72d89662f444e827a294a7d4ec06e",
+            "parentId": "wrk_188a46d87ecd487fa7378ea841e08be5",
+            "modified": 1736958280803,
+            "created": 1736958280803,
+            "name": "PRODUCT_MANAGEMENT_APIS",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1736958280803,
+            "environmentType": "kv",
+            "_type": "request_group"
+        },
+        {
+            "_id": "wrk_188a46d87ecd487fa7378ea841e08be5",
+            "parentId": null,
+            "modified": 1723577172228,
+            "created": 1723577172228,
+            "name": "My Collection",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_1a5e2bd9112148239c64cac8b0490fcb",
+            "parentId": "fld_a8c72d89662f444e827a294a7d4ec06e",
+            "modified": 1737131318743,
+            "created": 1736965879257,
+            "url": "{{ _['product-mgmt-api-router-base-url'] }}/v1/products",
+            "name": "App_Router_Products_API",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.2.0",
+                    "id": "pair_0c09a4faf3b84ff0982906cbde1fc777"
+                },
+                {
+                    "id": "pair_57106e2462a94d5e831b0b228ff39037",
+                    "name": "x-approuter-authorization",
+                    "value": "Bearer <Access_Token>",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "authentication": {
+                "type": "none"
+            },
+            "metaSortKey": -1736965879332,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_9436064b459440d787057f95b2b7fa41",
+            "parentId": "fld_a8c72d89662f444e827a294a7d4ec06e",
+            "modified": 1737131329476,
+            "created": 1736965399601,
+            "url": "{{ _['product-mgmt-direct-api-url'] }}/v1/products",
+            "name": "Direct_Products_API",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.2.0",
+                    "id": "pair_d313cb39dd60485bb07a119f7e8ad1ec"
+                },
+                {
+                    "id": "pair_26af5f40f3ec40c6a3e71546de3f9437",
+                    "name": "Authorization",
+                    "value": "Bearer <Access_token>",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1736965879307,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_f52ecea19301c59b0edc3c34a9630f476960e115",
+            "parentId": "wrk_188a46d87ecd487fa7378ea841e08be5",
+            "modified": 1737131146287,
+            "created": 1723577172231,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": {},
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1723577172231,
+            "environmentType": "json",
+            "kvPairData": [],
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_f52ecea19301c59b0edc3c34a9630f476960e115",
+            "parentId": "wrk_188a46d87ecd487fa7378ea841e08be5",
+            "modified": 1735907194460,
+            "created": 1723577172236,
+            "name": "Default Jar",
+            "cookies": [
+                {
+                    "key": "sap-usercontext",
+                    "value": "sap-client=100",
+                    "domain": "sandbox.api.sap.com",
+                    "path": "/",
+                    "hostOnly": true,
+                    "creation": "2024-08-13T19:28:37.218Z",
+                    "lastAccessed": "2024-08-13T19:28:37.218Z",
+                    "id": "31798676-1779-47c5-9eb4-9e8d4100ff14"
+                },
+                {
+                    "key": "X-Uaa-Csrf",
+                    "value": "8Neo79WRXUeDppvTb2WQnW",
+                    "expires": "2025-01-04T12:26:34.000Z",
+                    "maxAge": 86400,
+                    "domain": "sandbox-ggbtlvwv.authentication.us10.hana.ondemand.com",
+                    "path": "/",
+                    "secure": true,
+                    "httpOnly": true,
+                    "hostOnly": true,
+                    "creation": "2025-01-03T12:26:34.460Z",
+                    "lastAccessed": "2025-01-03T12:26:34.460Z",
+                    "sameSite": "none",
+                    "id": "853df555-74ec-42a4-957c-9d3c4293704c"
+                }
+            ],
+            "_type": "cookie_jar"
+        }
+    ]
+}

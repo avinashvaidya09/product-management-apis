@@ -94,9 +94,9 @@ application.
 
 ## Testing API through postman or insomnia
 
-1. Import the collection which I have provided in the resources folder
+1. Import the collection which I have provided in the resources folder. 
 
-2. Get your own base urls and client id and client secret.
+2. Get your own base urls and client id and client secret. I have externalized the urls and credentials as it is not safe to check it in the repo.
 
 3. Get the token.
 
