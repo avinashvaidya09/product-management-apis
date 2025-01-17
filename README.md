@@ -92,6 +92,24 @@ application.
 
 3. Ensure, the destination is created as part of deployment.
 
+## Testing API through postman or insomnia
+
+1. Import the collection which I have provided in the resources folder
+
+2. Get your own base urls and client id and client secret.
+
+3. Get the token.
+
+4. Execute the request to the app router and/or to direct api. IMPORTANT:
+    - When calling the API through app router, ensure you put the bearer token in "x-approuter-authorization" header.
+    - When calling the API directly, ensure you put the bearer token in the "Authorization" header.
+
+## Testing application through browser
+
+1. I have enabled both authorization_code and client_credentials authentication strategy as part of this project. This API can be accessed thourgh browser thourgh user authentication and through postman using client authentication.
+
+2. This way the API can be integrated to a UI and can be called from backend system. Both ways it is secured access.
+
 ## GREAT - You have successfully created a secured secured REST API on SAP BTP using NodeJS!
 
 ## References:
