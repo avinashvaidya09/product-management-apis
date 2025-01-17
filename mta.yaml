@@ -57,7 +57,7 @@ resources: # Here you mention services/instances which are required by your modu
           instance:
             existing_destinations_policy: update
             destinations:
-              - Name: product-mgmt-destination
+              - Name: product-mgmt-destination # Ensure that this destination is created inside the product-management-destinations service
                 URL: https://product-management-av09.cfapps.${region}.hana.ondemand.com
                 Type: HTTP
                 ProxyType: Internet
