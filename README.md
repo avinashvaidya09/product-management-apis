@@ -3,7 +3,7 @@
 Welcome to the Product Management API project! This repository demonstrates the seamless integration of open-source Node.js frameworks with the powerful SAP technology stack.
 
 Learn how to:
-1. Develop and build robust Node.js applications in the cutting-edge SAP Business Application Studio.
+1. Develop and build Node.js applications in the SAP Business Application Studio.
 2. Effortlessly integrate your application with cloud services available on SAP BTP.
 3. Secure your APIs using XSUAA, SAP's advanced authentication and trust management service.
 4. Efficiently use application router and destination service on BTP.
