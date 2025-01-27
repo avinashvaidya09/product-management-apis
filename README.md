@@ -47,6 +47,10 @@ npm init
     ```
     npm install @sap/xssec --save
     ```
+    - To install axios
+    ```
+    npm install axios
+    ```
     - Similarly install @sap/xsenv and passport
 
 8. Create app router by adding folder named - **approuter**
@@ -83,6 +87,12 @@ export NODE_ENV=local
 ```
 npm start
 ```
+
+## Debuggging Locally
+
+1. Check the launch.json in the repository.
+
+2. Ensure vcap.json is present in the root of your project.
 
 ## Project Deployment To BTP Cloud Foundry
 

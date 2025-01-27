@@ -1,5 +1,5 @@
 const express = require('express');
-const { getProducts } = require('./src/repository');
+const { getProducts } = require('./src/product-service');
 const app = express();
 const port = process.env.port || 8080;
 
